@@ -16,6 +16,10 @@ app.use(cors());
 // application routes
 app.use('/api/users', UserRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Server is running')
+})
+
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/test');
 
 app.listen(PORT, () => {
