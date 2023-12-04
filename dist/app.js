@@ -16,6 +16,9 @@ app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 // application routes
 app.use('/api/users', user_router_1.UserRoutes);
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});
 mongoose_1.default.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/test');
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
